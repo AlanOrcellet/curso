@@ -1,4 +1,6 @@
-import { Application, Container, Loader, Point, Sprite } from 'pixi.js'
+import { Application, Assets } from 'pixi.js'
+import { Scene } from './scene';
+import { assets } from './assets';
 
 const app = new Application<HTMLCanvasElement>({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -10,6 +12,12 @@ const app = new Application<HTMLCanvasElement>({
 
 });
 
+async function init(){
+	await Assets.init({manifest: assets});
+	await Assets.loadBundle("testeo");
+}
+
+//Creo un evento llamado Resize
 window.addEventListener("resize", ()=>{
 	console.log("resized!");
 	const scaleX = window.innerWidth / app.screen.width;
@@ -34,46 +42,14 @@ window.addEventListener("resize", ()=>{
 	app.view.style.marginTop = marginVertical + "px";
 	app.view.style.marginBottom = marginVertical + "px";
 })
-
+//llama al evento Rezise
 window.dispatchEvent(new Event("resize"));
 
-
-Loader.shared.add({url: "./kocho.jpg", name: "myKocho"})
-Loader.shared.add({url: "./mariposa.jpg", name: "myMariposa"})
-
-Loader.shared.onComplete.add(()=>{
-
-	const kocho: Sprite = Sprite.from("myKocho");
-	const mariposa: Sprite = Sprite.from("myMariposa");
-
-	const kochoBfly: Container = new Container ();
+init().then(()  => {
 	
-	kocho.x = 0;
-	kocho.y = 0;
+	//Crear escena
+	const myScene = new Scene ()
+		app.stage.addChild(myScene);
+ });
 
-	kocho.scale.x = 0;
-	kocho.scale.y = 0;
-
-	mariposa.scale.set(0,0);
-	mariposa.position.set(0,0);
-
-	// Maneras de ver la coordenada donde se encuentra
-	console.log(mariposa.toGlobal(new Point()));
-	console.log(mariposa.parent.toGlobal(mariposa.position));
-
-	/*Preguntar en el mundo del parent la coordenada de un objeto interno,
-	1280 x 720 / 2 = 640 x 360 */
-	const aux = mariposa.parent.toLocal(new Point(640,360));
-	mariposa.position.x = aux.x;
-	mariposa.position.y = aux.y;
-
-	//quien mas abajo esté y quien va delante de todos los demás
-	app.stage.addChild(kochoBfly)
-
-	kochoBfly.addChild(kocho);
-	kochoBfly.addChild(mariposa)
-
-});
-
-Loader.shared.load();
 
