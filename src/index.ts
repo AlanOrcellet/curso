@@ -26,7 +26,7 @@ window.addEventListener("resize", ()=>{
 
 	// cálculo del aspect ratio
 	const gameWidth = Math.round(app.screen.width * scale);
-	const gameHeight = Math.round(app.screen.width * scale);
+	const gameHeight = Math.round(app.screen.height * scale);
 
 	//cálculo de márgen
 	const marginHorizontal = Math.floor((window.innerWidth - gameWidth) / 2);
@@ -34,7 +34,7 @@ window.addEventListener("resize", ()=>{
 
 	//ajustes bordes negros
 	app.view.style.width = gameWidth + "px";
-	app.view.style.width = gameHeight + "px";
+	app.view.style.height = gameHeight + "px";
 
 	app.view.style.marginLeft = marginHorizontal + "px";
 	app.view.style.marginRight = marginHorizontal + "px";
@@ -48,7 +48,7 @@ window.dispatchEvent(new Event("resize"));
 init().then(()  => {
 	
 	//Crear escena
-	const myScene = new Scene ()
+	const myScene = new Scene ();
 		app.stage.addChild(myScene);
  });
 

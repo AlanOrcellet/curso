@@ -2,8 +2,9 @@ import { Container } from "pixi.js";
 import { kochoBfly } from "./KochoBfly";
 
 export class Scene extends Container {
-    contructor(){
-        
+    constructor(){
+        super();
+
         const kochoCont: kochoBfly = new kochoBfly ();
         
         kochoCont.scale.set(0,0);

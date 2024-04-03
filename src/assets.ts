@@ -4,10 +4,10 @@ import { AssetsManifest } from "pixi.js";
     export const assets: AssetsManifest = {
         bundles : [
             { name: "testeo",
-              assets:[{
+              assets:{
                 "kocho" : "./kocho.jpg",
                 "mariposa" : "./mariposa.jpg",
-            }]
+            }
             }
         ]
     }

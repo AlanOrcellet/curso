@@ -4,8 +4,8 @@ export class kochoBfly extends Container {
     constructor(){
         super();
 
-    const img1 : Sprite = Sprite.from("kocho");
-    const img2 : Sprite= Sprite.from("mariposa");
+    const img1 = Sprite.from("kocho");
+    const img2 = Sprite.from("mariposa");
           
     
     img1.scale.set(0,0);
