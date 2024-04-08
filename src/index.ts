@@ -1,20 +1,27 @@
-import { Application, Assets } from 'pixi.js'
-import { Scene } from './scene';
-import { assets } from './assets';
+import { Application, Assets, Ticker } from 'pixi.js'
+import { assets } from './Assets/assets';
+import { TickerScene } from './scenes/TickerScene';
+
+export const WIDTH = 1920;
+
+export const HEIGHT = 1080;
+
 
 const app = new Application<HTMLCanvasElement>({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
 	backgroundColor: 0x6495ed,
-	width: 1280,
-	height: 720
+	width: WIDTH,
+	height: HEIGHT
 
 });
 
 async function init(){
 	await Assets.init({manifest: assets});
-	await Assets.loadBundle("testeo");
+	await Assets.loadBundle("resting");
+	await Assets.loadBundle("background");
+	await Assets.loadBundle("buttons");
 }
 
 //Creo un evento llamado Resize
@@ -48,8 +55,11 @@ window.dispatchEvent(new Event("resize"));
 init().then(()  => {
 	
 	//Crear escena
-	const myScene = new Scene ();
+	const myScene = new TickerScene ();
 		app.stage.addChild(myScene);
+		Ticker.shared.add(function(deltaFrame){
+			myScene.update(Ticker.shared.deltaMS, deltaFrame);
+		})
  });
 
 
