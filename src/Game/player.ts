@@ -22,35 +22,32 @@ export class Player extends PhysicsContainer {
             true
         );
     
-
-
         this.playerAnimated.play();
-        this.playerAnimated.animationSpeed = 0.02
+        this.playerAnimated.animationSpeed = 0.01
+        
+            this.physPlayer = new PhysicsContainer();
+        
+                this.physPlayer.scale.set(2)
+        
+                this.physPlayer.x = 300
+                this.physPlayer.y = 700
 
-        this.physPlayer = new PhysicsContainer();
+                this.speed.x = 0
+                this.speed.y = 0
 
-        this.physPlayer.scale.set(2)
+                this.addChild(this.physPlayer);
+                this.physPlayer.addChild(this.playerAnimated);
 
-        this.physPlayer.x = 200
-        this.physPlayer.y = 700
-
-        this.physPlayer.speed.x = 0
-        this.physPlayer.speed.y = 0
-
-
-        this.addChild(this.physPlayer);
-        this.physPlayer.addChild(this.playerAnimated);
-
-        this.acceleration.y = Player.GRAVITY;
-
-
+                this.acceleration.y = Player.GRAVITY;
 
     }  
+
 
     public override update(deltaTime: number){
 
         super.update(deltaTime/1000);
         this.playerAnimated.update(deltaTime / (1000/60) )
+        
 
     }
 

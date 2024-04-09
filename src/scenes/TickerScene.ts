@@ -7,7 +7,6 @@ export class TickerScene extends Container implements IUpdateable
 {
     private backGr = Sprite.from("backGround")
     private buttonStart = Sprite.from("start")
-    
     private jugador : Player;
 
         constructor(){
@@ -17,26 +16,50 @@ export class TickerScene extends Container implements IUpdateable
 
         
             this.addChild(this.backGr);
-            this.addChild(this.buttonStart)
-            this.addChild(this.jugador);
+            this.backGr.addChild(this.buttonStart)
+            this.backGr.addChild(this.jugador);
             
             this.buttonStart.scale.set(1.5)
-            this.buttonStart.x = 850
+            this.buttonStart.x = 790
             this.buttonStart.y = 270
             
+            
+            this.buttonStart.on("mousedown", this.onMouseDown, this);
+            this.buttonStart.on("mouseup", this.onMouseUp, this);
+            this.buttonStart.on("mouseover", this.onMouseOver, this);
+            this.buttonStart.on("mouseout", this.onMouseOut, this);
+            this.buttonStart.interactive = true;
+
+
+
+
+
+
 
 
         }
-    
 
+    private onMouseDown(): void{
+        console.log("click")
+    }
+
+    private onMouseUp(): void{
+        console.log("click suelto")
+    }
+
+    private onMouseOver(): void{
+        console.log("mouse over")
+    }
+    private onMouseOut(): void{
+        console.log("mouse out")
+    }
+
+    
     public update(deltaTime: number, deltaFrame: number | number): void {
         this.jugador.update(deltaFrame); //actualiza animacion
-
-        //convierte dt en segundos
             const dt = deltaTime
             this.jugador.update(dt);
 
-        // this.playerAnimated.x ++ / += moverlo de manera horizontal y (y) para vertical
 
         //limite horizontal
         if (this.jugador.x > WIDTH){
