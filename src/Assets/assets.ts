@@ -73,6 +73,25 @@ import { AssetsManifest } from "pixi.js";
                     "clickedStart" : "./botones/startApretado.png"
                 }
 
+            },
+            {
+                name:"enemies",
+                    assets:{
+                        "idle1_1" : "./enemigos/enemigo1_idle1.png",
+                        "idle1_2" : "./enemigos/enemigo1_idle2.png",
+                        "e1Preparing" : "./enemigos/enemigo1_preparando1.png",
+                        "e1Attack_1" : "./enemigos/enemigo1_ataque1.png",
+                        "e1Attack_2" : "./enemigos/enemigo1_ataque2.png",
+                        "e1Damage" : "./enemigos/enemigo1_daño.png",
+                        "idle2_1" : "./enemigos/enemigo2_idle1.png",
+                        "idle2_2" : "./enemigos/enemigo2_idle2.png",
+                        "e2Preparing" : "./enemigos/enemigo2_preparando1.png",
+                        "e2Attack_1" : "./enemigos/enemigo2_ataque1.png",
+                        "e2Attack_2" : "./enemigos/enemigo2_ataque2.png",
+                        "e2Damage" : "./enemigos/enemigo2_daño.png"
+
+
+                    }
             }
         
 

@@ -9,6 +9,7 @@ export class Button extends Container{
     private callback: Function;
 
     private spr: Sprite;
+
     static typeof: Button;
 
 
@@ -21,7 +22,12 @@ export class Button extends Container{
 
 
         this.spr = Sprite.from(def);
+        this.spr.anchor.set(0.5);
         this.addChild(this.spr);
+
+        this.spr.scale.set(1.5)
+        this.spr.x = 1000
+        this.spr.y = 430
 
         this.spr.interactive = true;
 
@@ -33,12 +39,12 @@ export class Button extends Container{
     }
 
     private onMouseDown(): void{
-        this.spr = Sprite.from(this.down);
+        this.spr.texture = this.down;
 
     }
 
     private onMouseUp(): void{
-        this.spr = Sprite.from(this.def);
+        this.spr.texture = this.def;
         this.callback();
     }
 

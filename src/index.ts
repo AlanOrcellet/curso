@@ -1,6 +1,6 @@
 import { Application, Assets, Ticker } from 'pixi.js'
 import { assets } from './Assets/assets';
-import { TickerScene } from './scenes/TickerScene';
+import { TickerScene } from './scenes/Scene';
 
 export const WIDTH = 1920;
 
@@ -22,6 +22,7 @@ async function init(){
 	await Assets.loadBundle("resting");
 	await Assets.loadBundle("background");
 	await Assets.loadBundle("buttons");
+	await Assets.loadBundle("enemies");
 }
 
 //Creo un evento llamado Resize
