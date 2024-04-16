@@ -23,6 +23,8 @@ async function init(){
 	await Assets.loadBundle("background");
 	await Assets.loadBundle("buttons");
 	await Assets.loadBundle("enemies");
+	await Assets.loadBundle("gameInterface");
+	await Assets.loadBundle("playerButtons");
 }
 
 //Creo un evento llamado Resize

@@ -92,6 +92,33 @@ import { AssetsManifest } from "pixi.js";
 
 
                     }
+            },
+            {
+                name:"gameInterface",
+                    assets:{
+                        "coin" : "./interfaz/coin.png",
+                        "potion" : "./interfaz/Poti.png",
+                        "GameOver" : "./interfaz/gameOver.png",
+                        "HP_0" : "./interfaz/HP_0.png",
+                        "HP_25" : "./interfaz/HP_25.png",
+                        "HP_50" : "./interfaz/HP_50.png",
+                        "HP_75" : "./interfaz/HP_75.png",
+                        "HP_100" : "./interfaz/HP_100.png",
+                    }
+            },
+            {
+                name: "playerButtons",
+                    assets:{
+                        "clickedShield" : "./botones/apretadoEscudo.png",
+                        "buttonShield" : "./botones/botonEscudo.png",
+                        "shield" : "./botones/escudo.png",
+                        "clickedSword" : "./botones/apretadoEspada.png",
+                        "buttonSword" : "./botones/botonEspada.png",
+                        "sword" : "./botones/espada.png",
+                        "clickedPotion" : "./botones/apretadoPocion",
+                        "buttonPotion" : "./botones/botonPocion.png",
+                        "potionSpr" : "./botones/pocion.png",
+                    }
             }
         
 

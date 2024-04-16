@@ -16,6 +16,7 @@ export class Player extends PhysicsContainer implements IHitBox{
         super();
         
         
+        
         this.playerAnimated = new AnimatedSprite(
             [
                 Texture.from("rest1"),
@@ -52,7 +53,7 @@ export class Player extends PhysicsContainer implements IHitBox{
                 auxZero.drawCircle(0,0,10);
                 this.physPlayer.addChild(auxZero)
 
-
+                
                 this.hitBox = new Graphics();
                 this.hitBox.beginFill(0xFF00FF,0.3);
                 this.hitBox.drawRect(27,20,100,130);
@@ -85,7 +86,7 @@ export class Player extends PhysicsContainer implements IHitBox{
 
     }  
 
-
+    
     public override update(deltaTime: number){
 
         super.update(deltaTime/1000);
